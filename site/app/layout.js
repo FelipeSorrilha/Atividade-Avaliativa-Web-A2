@@ -1,4 +1,6 @@
 // Esse arquivo aqui é o "modelo" do site, td que estiver aqui aparece em todas as telas
+// Carrega o CSS para o site inteiro. Precisa ficar no topo do arquivo.
+import "./globals.css";
 
 // Texto da aba do navegador
 export const metadata = {

@@ -1,0 +1,56 @@
+/* Variáveis: valores definidos uma vez e reutilizados com var(--nome).
+   Para mudar a cor do site inteiro, você troca só aqui. */
+:root {
+    --cor-principal: #2f5fd0;
+    --cor-fundo: #f4f6fb;
+    --cor-texto: #1c1f2a;
+}
+
+/* Regras que valem para o site todo */
+body {
+    margin: 0; /* remove a margem padrão do navegador */
+    background: var(--cor-fundo);
+    color: var(--cor-texto);
+    font-family: Arial, sans-serif;
+}
+
+/* Caixa central com largura limitada, para o conteúdo não esticar na tela inteira */
+.container {
+    max-width: 600px;
+    margin: 40px auto; /* "auto" nas laterais centraliza a caixa */
+    padding: 0 20px;
+}
+
+.titulo {
+    color: var(--cor-principal);
+}
+
+/* Empilha os botões com espaço entre eles */
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+/* Aparência de botão para o link */
+.botao {
+     padding: 12px 20px; /* espaço interno: 12px em cima/baixo, 20px nos lados */
+    background: var(--cor-principal);
+    color: white;
+    text-decoration: none; /* tira o sublinhado do link */
+    border-radius: 8px; /* cantos arredondados */
+    text-align: center;
+}
+
+/* ":hover" vale enquanto o mouse está em cima */
+.botao:hover {
+    opacity: 0.85;
+}
+
+/* Variação: vem depois do .botao, então sobrescreve as cores dele */
+.botao-secundario {
+    background: transparent;
+    color: var(--cor-principal);
+    border: 2px solid var(--cor-principal);
+}

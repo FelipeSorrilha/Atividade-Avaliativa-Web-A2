@@ -9,12 +9,13 @@ export default function Home() {
     <main>
         <h1>Roteiros de Estudo</h1>
         <p>Consulte Roteiros de Estudos do Colégio Pied Rouge!</p>
-
+    <div>
         {/* href é o destino, "/professor" aponta para a pasta app/professor. */}
         <Link href="/professor">Área do Professor</Link>
-
+    </div>
+    <div>
         <Link href="/aluno">Área do Aluno</Link>
-
+    </div>
     </main>
     );
 }
