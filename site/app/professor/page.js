@@ -11,42 +11,29 @@ export default function Novo() {
 
                 <form>
                     <div className="campo">
-                        <label htmlFor="email">
-                            E-mail
-                        </label>
-
+                        <label htmlFor="email">E-mail</label>
                         <input
-                            type="text"
+                            type="email"
                             id="email"
                             name="email"
-                            placeholder="Digite seu E-mail:"
+                            placeholder="Digite seu e-mail:"
                             required
                         />
                     </div>
 
                     <div className="campo">
-                        <label htmlFor="senha">
-                            Senha
-                        </label>
-
+                        <label htmlFor="nome">Nome</label>
                         <input
                             type="text"
-                            id="senha"
-                            name="senha"
-                            placeholder="Digite sua senha:"
+                            id="nome"
+                            name="nome"
+                            placeholder="Insira seu nome:"
                             required
                         />
                     </div>
 
-                    <button
-                        type="submit"
-                        className="botao"
-                    >
+                    <Link href="/professor/login" className="botao">
                         Entrar
-                    </button>
-
-                    <Link href="/novaConta">
-                        Não tenho login
                     </Link>
                 </form>
             </div>
