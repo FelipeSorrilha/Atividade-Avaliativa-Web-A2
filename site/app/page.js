@@ -1,22 +1,27 @@
-// Link é o componente do Next para navegar entre telas sem recarregar o site.
 import Link from "next/link";
 
-// O arquivo precisa se chamar page.js para o Next entender que é uma tela.
-// Como está direto na pasta app, o endereço dela é "/".
-// O nome da função (Home) pode ser qualquer um, mas precisa ter "export default".
 export default function Home() {
     return (
-    <main>
-        <h1>Roteiros de Estudo</h1>
-        <h2>Roteiros de estudos claros e confiáveis, criados com inteligência artificial e revisados por quem entende: seus professores.</h2>
-        <p>Consulte Roteiros de Estudos do Colégio Pied Rouge!</p>
-    <div>
-        {/* href é o destino, "/professor" aponta para a pasta app/professor. */}
-        <Link href="/professor">Área do Professor</Link>
-    </div>
-    <div>
-        <Link href="/aluno">Área do Aluno</Link>
-    </div>
-    </main>
+        <main className="container">
+            <h1 className="titulo">
+                Seu próximo aprendizado começa aqui!
+            </h1>
+
+            <p>
+                Roteiros de estudos claros e confiáveis, criados com
+                inteligência artificial e revisados por quem entende:
+                seus professores.
+            </p>
+
+            <div className="menu">
+                <Link href="/professor" className="botao">
+                    Área do Professor
+                </Link>
+
+                <Link href="/aluno" className="botao botao-secundario">
+                    Área do Aluno
+                </Link>
+            </div>
+        </main>
     );
 }

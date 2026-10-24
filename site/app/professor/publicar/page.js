@@ -9,8 +9,11 @@ export default function Publicar() {
     <p>Faça o upload do PDF abaixo:</p>
 
 
-        {/* "/" é o endereço da tela inicial */}
-        <Link href="/">Voltar para o início</Link>
+    <div className="botao-voltar">
+        <Link href="/" className="botao botao-secundario">
+            Voltar para o início
+        </Link>
+    </div>
     </main>
     );
 }

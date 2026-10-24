@@ -5,12 +5,17 @@ import Link from "next/link";
 export default function Professor() {
     return (
     <main>
-    <h1>Área do Aluno</h1>
-    <p>Escolha a matéria e o ano:</p>
+    <h1>O que vamos aprender hoje?</h1>
+    <p>
+        Escolha o seu ano e matéria para encontrar o roteiro ideal:
+    </p>
 
 
-        {/* "/" é o endereço da tela inicial */}
-        <Link href="/">Voltar para o início</Link>
+    <div className="botao-voltar">
+        <Link href="/" className="botao botao-secundario">
+            Voltar para o início
+        </Link>
+    </div>
     </main>
     );
 }

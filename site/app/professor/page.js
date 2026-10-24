@@ -1,27 +1,64 @@
 import Link from "next/link";
 
-export default function Professor() {
+export default function Novo() {
     return (
-    // No JSX é className, e não class (class é palavra reservada do JavaScript)
-    <main className="container">
-        <h1 className="titulo">Área do Professor</h1>
-        <p>Escolha uma opção:</p>
+        <main>
+            <h1>Boas vindas, professor!</h1>
+            <p>Entre com seus dados institucionais:</p>
 
-      {/* Um grupo para os botões, para controlar o espaçamento entre eles */}
-        <nav className="menu">
-        <Link href="/professor/novo" className="botao">
-            Solicitar um novo Roteiro
-        </Link>
+            <div className="container-formulario">
+                <h2>Login de Usuário</h2>
 
-        <Link href="/professor/publicar" className="botao">
-            Publicar Roteiro
-        </Link>
+                <form>
+                    <div className="campo">
+                        <label htmlFor="email">
+                            E-mail
+                        </label>
 
-        {/* Segunda classe: "botao-secundario" muda só a aparência deste */}
-        <Link href="/" className="botao botao-secundario">
-            Voltar para o início
-        </Link>
-    </nav>
-    </main>
+                        <input
+                            type="text"
+                            id="email"
+                            name="email"
+                            placeholder="Digite seu E-mail:"
+                            required
+                        />
+                    </div>
+
+                    <div className="campo">
+                        <label htmlFor="senha">
+                            Senha
+                        </label>
+
+                        <input
+                            type="text"
+                            id="senha"
+                            name="senha"
+                            placeholder="Digite sua senha:"
+                            required
+                        />
+                    </div>
+
+                    <button
+                        type="submit"
+                        className="botao"
+                    >
+                        Entrar
+                    </button>
+
+                    <Link href="/novaConta">
+                        Não tenho login
+                    </Link>
+                </form>
+            </div>
+
+            <div className="botao-voltar">
+                <Link
+                    href="/"
+                    className="botao botao-secundario"
+                >
+                    Voltar para o início
+                </Link>
+            </div>
+        </main>
     );
 }

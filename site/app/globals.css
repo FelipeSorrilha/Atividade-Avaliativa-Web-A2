@@ -1,7 +1,7 @@
 /* Variáveis: valores definidos uma vez e reutilizados com var(--nome).
    Para mudar a cor do site inteiro, você troca só aqui. */
 :root {
-    --cor-principal: #2f5fd0;
+    --cor-principal: #601384;
     --cor-fundo: #f4f6fb;
     --cor-texto: #1c1f2a;
 }
@@ -11,7 +11,7 @@ body {
     margin: 0; /* remove a margem padrão do navegador */
     background: var(--cor-fundo);
     color: var(--cor-texto);
-    font-family: Arial, sans-serif;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 /* Caixa central com largura limitada, para o conteúdo não esticar na tela inteira */
@@ -35,7 +35,7 @@ body {
 
 /* Aparência de botão para o link */
 .botao {
-     padding: 12px 20px; /* espaço interno: 12px em cima/baixo, 20px nos lados */
+    padding: 12px 20px; /* espaço interno: 12px em cima/baixo, 20px nos lados */
     background: var(--cor-principal);
     color: white;
     text-decoration: none; /* tira o sublinhado do link */
@@ -55,6 +55,12 @@ body {
     border: 2px solid var(--cor-principal);
 }
 
+.botao-voltar {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
 h1{
     text-align: center;
 }
@@ -62,3 +68,75 @@ h1{
 h2{
     text-align: center;
 }
+
+p{
+    text-align: center;
+}
+
+
+/* Caixa do formulário de cadastro */
+.container-formulario {
+    max-width: 500px;
+    margin: 40px auto;
+    padding: 30px;
+
+    background: white;
+    border: 1px solid #e1dce8;
+    border-radius: 8px;
+    box-sizing: border-box;
+}
+
+/* Título do formulário */
+.container-formulario h2 {
+    color: var(--cor-principal);
+    margin-bottom: 25px;
+}
+
+/* Organização dos campos */
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+/* Texto acima dos campos */
+.campo label {
+    color: var(--cor-texto);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Campos de nome e login */
+.campo input {
+    padding: 12px;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--cor-texto);
+
+    background: var(--cor-fundo);
+    border: 1px solid #d5ccdf;
+    border-radius: 8px;
+    box-sizing: border-box;
+    width: 100%;
+    outline: none;
+}
+
+/* Destaque ao clicar no campo */
+.campo input:focus {
+    border-color: var(--cor-principal);
+    box-shadow: 0 0 0 2px rgba(96, 19, 132, 0.12);
+}
+
+/* Botão de salvar, seguindo o padrão .botao */
+.container-formulario .botao {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    font-family: inherit;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
