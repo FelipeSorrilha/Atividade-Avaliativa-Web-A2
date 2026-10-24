@@ -54,3 +54,11 @@ body {
     color: var(--cor-principal);
     border: 2px solid var(--cor-principal);
 }
+
+h1{
+    text-align: center;
+}
+
+h2{
+    text-align: center;
+}

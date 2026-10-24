@@ -8,6 +8,7 @@ export default function Home() {
     return (
     <main>
         <h1>Roteiros de Estudo</h1>
+        <h2>Roteiros de estudos claros e confiáveis, criados com inteligência artificial e revisados por quem entende: seus professores.</h2>
         <p>Consulte Roteiros de Estudos do Colégio Pied Rouge!</p>
     <div>
         {/* href é o destino, "/professor" aponta para a pasta app/professor. */}
