@@ -139,4 +139,15 @@ p{
     cursor: pointer;
 }
 
+/* Fonte monoespaçada para a caixa das questões, onde o formato importa */
+.caixa-codigo {
+    font-family: Consolas, monospace;
+}
 
+.status-questoes {
+    margin-top: 6px;
+    font-size: 14px;
+}
+
+.status-ok { color: #1a7f37; }    /* verde */
+.status-erro { color: #b42318; }  /* vermelho */

@@ -1,0 +1,22 @@
+[
+  {
+    "id": "88200f3a-1098-4c9f-8d6a-32d3bb8e7bec",
+    "disciplina": "Inglês",
+    "anoEscolar": "7º ano do Ensino Fundamental",
+    "tema": "Past simple",
+    "texto": "Past simple é muito simple kkkk\n\nsó por um ED no final (pros verbos regulares!!)",
+    "questoes": [
+      {
+        "enunciado": "Qual é o passado de \"walk\"?",
+        "alternativas": [
+          "walked",
+          "walk",
+          "walkt",
+          "walking"
+        ],
+        "correta": 0
+      }
+    ],
+    "criadoEm": "2026-10-25T14:05:07.550Z"
+  }
+]
