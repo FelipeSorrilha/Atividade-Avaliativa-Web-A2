@@ -25,6 +25,70 @@ const anosEscolares = [
     "9º ano do Ensino Fundamental",
 ];
 
+
+
+// Chave do Web3Forms
+// ela não é secreta, não funciona igual outras APIs, ela pode ficar aqui suave
+const WEB3FORMS_KEY = "fd6e04ec-425d-49d8-a4e3-9e23b5159298";
+
+// A partir das respostas do formulário, devolve o prompt pronto como texto
+function montarPrompt(d) {
+    // Se um campo opcional vier vazio, escreve "nenhum" no lugar
+    const observacoes = d.observacoes.trim() || "nenhuma";
+    const textoExterno = d.textoExterno.trim() || "nenhum";
+
+    return `Crie um roteiro de estudos simples e resumido, com questões de múltipla escolha, adequado à disciplina, ao ano escolar e ao tema informados.
+
+Dados do roteiro:
+
+* Disciplina: ${d.disciplina}
+* Ano escolar: ${d.anoEscolar}
+* Tema do roteiro: ${d.tema}
+* Quantidade de questões: ${d.quantidade}
+* Data prevista para utilização: ${d.dataUtilizacao}
+* Observações e orientações adicionais: ${observacoes}
+* Texto externo: ${textoExterno}
+
+Instruções para elaboração:
+
+1. Elabore um roteiro explicando brevemente o conteúdo, sem utilizar simbolos especiais.
+2. Adeque a linguagem, a complexidade e o nível de aprofundamento ao ano escolar informado.
+3. Aborde o tema solicitado de maneira coerente com os conteúdos da disciplina.
+4. Crie as questões separadas do texto de explicação em uma sequência lógica, começando, preferencialmente, pelas mais simples e avançando para as mais complexas.
+5. Faça apenas questões de múltipla escolha.
+6. Elabore enunciados claros, completos e sem ambiguidades.
+7. Evite questões repetitivas, informações incorretas e conteúdos inadequados ao nível de escolaridade.
+8. Considere as observações fornecidas pelo solicitante, respeitando as orientações específicas sobre a turma, os conteúdos e a abordagem desejada.
+9. Quando pertinente, contextualize as questões com situações do cotidiano dos estudantes.
+10. Se houver texto ou link externo, inclua-o no roteiro destacado como: TEXTO NAO PRODUZIDO POR IA, RETIRADO DA INTERNET E INFORMADO PELO PROFESSOR PARA COMPLEMENTAR O ESTUDO.
+11. Escreva primeiro o texto de explicação, sem usar o símbolo # nele. Depois escreva, sozinha em uma linha, a marcação ---QUESTOES--- e, em seguida, todas as questões. // NOVO
+12. Escreva todas as questões dentro de um único bloco de código, no formato abaixo. // NOVO
+
+Formato de cada questão:
+
+# número da questão;
+## enunciado;
+### alternativa a;
+### alternativa b;
+### alternativa c;
+### alternativa d;
+### alternativa e;
+#### letra da alternativa correta; // NOVO
+
+Exemplo:
+
+# 1;
+## Quanto é 2 + 2?;
+### 4;
+### 5;
+### 6;
+### 7;
+### 8;
+#### a;
+
+Importante: produza diretamente o roteiro solicitado, sem explicar o processo de criação, sem fazer perguntas adicionais e sem incluir questões além da quantidade definida. Se alguma observação estiver vazia, prossiga normalmente utilizando os demais dados.`;
+}
+
 function calcularDataMinima() {
     const data = new Date();
     data.setDate(data.getDate() + 7);
@@ -37,6 +101,7 @@ function calcularDataMinima() {
 }
 
 export default function SolicitarRoteiro() {
+    const [enviando, setEnviando] = useState(false);
     const [disciplina, setDisciplina] = useState("");
     const [anoEscolar, setAnoEscolar] = useState("");
     const [tema, setTema] = useState("");
@@ -44,24 +109,57 @@ export default function SolicitarRoteiro() {
     const [dataUtilizacao, setDataUtilizacao] = useState("");
     const [observacoes, setObservacoes] = useState("");
     const [mensagem, setMensagem] = useState("");
-
     const dataMinima = calcularDataMinima();
+    const [textoExterno, setTextoExterno] = useState("");
 
-    function enviarSolicitacao(event) {
-        event.preventDefault();
-        setMensagem("");
+// "async" pq usa await para esperar a resposta
+async function enviarSolicitacao(event) {
+    event.preventDefault();
+    setMensagem("");
 
-        if (dataUtilizacao < dataMinima) {
-            setMensagem(
-                "Escolha uma data com pelo menos 7 dias de antecedência."
-            );
-            return;
-        }
-
-        setMensagem(
-            "Formulário validado!"
-        );
+    if (dataUtilizacao < dataMinima) {
+        setMensagem("Escolha uma data com pelo menos 7 dias de antecedência.");
+        return;
     }
+
+    setEnviando(true);
+    try {
+        // O Web3Forms recebe os dados e manda o e-mail para o endereço ligado à chave
+        // Atualmente, eh meu e-mail institucional (felipesorrilha@alunos...)
+        const resposta = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json", // pede a resposta em JSON
+            },
+            body: JSON.stringify({
+                access_key: WEB3FORMS_KEY,
+                // "subject" vira o assunto do e-mail
+                subject: `Nova solicitação: ${disciplina} - ${tema}`,
+                message: montarPrompt({
+                    disciplina, anoEscolar, tema, quantidade,
+                    dataUtilizacao, observacoes, textoExterno,
+                }),
+            }),
+        });
+
+        const dados = await resposta.json();
+
+        // O Web3Forms diz success: true  quando deu certo
+        if (dados.success) {
+            setMensagem("Solicitação enviada!");
+            setTema(""); // limpa os campos de texto
+            setObservacoes("");
+            setTextoExterno("");
+        } else {
+            setMensagem("Não foi possível enviar. Tente novamente.");
+        }
+    } catch {
+        // cai aqui se não houve conexão
+        setMensagem("Erro de conexão.");
+    }
+    setEnviando(false);
+}
 
     return (
         <main className="pagina-roteiro">
@@ -231,6 +329,23 @@ export default function SolicitarRoteiro() {
                         />
                     </div>
 
+                    <div className="campo">
+                        <label htmlFor="textoExterno">
+                            Texto ou link externo (opcional)
+                        </label>
+
+                        <textarea
+                            id="textoExterno"
+                            name="textoExterno"
+                            placeholder="Cole aqui um texto, ou um link, que possa complementar o roteiro."
+                            value={textoExterno}
+                            onChange={(e) => setTextoExterno(e.target.value)}
+                            rows={5}
+                            maxLength={5000} 
+                        />
+
+                    </div>
+
                     {mensagem && (
                         <p
                             className="mensagem-roteiro"
@@ -240,13 +355,9 @@ export default function SolicitarRoteiro() {
                             {mensagem}
                         </p>
                     )}
-
-                    <button
-                        type="submit"
-                        className="botao"
-                    >
-                        Enviar solicitação
-                    </button>
+                <button type="submit" className="botao" disabled={enviando}>
+                    {enviando ? "Enviando..." : "Enviar solicitação"}
+                </button>
                 </form>
             </div>
 
