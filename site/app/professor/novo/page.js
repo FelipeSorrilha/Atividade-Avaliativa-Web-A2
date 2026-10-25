@@ -25,15 +25,13 @@ const anosEscolares = [
     "9º ano do Ensino Fundamental",
 ];
 
-
-
 // Chave do Web3Forms
 // ela não é secreta, não funciona igual outras APIs, ela pode ficar aqui suave
 const WEB3FORMS_KEY = "fd6e04ec-425d-49d8-a4e3-9e23b5159298";
 
 // A partir das respostas do formulário, devolve o prompt pronto como texto
 function montarPrompt(d) {
-    // Se um campo opcional vier vazio, escreve "nenhum" no lugar
+    // Se um campo vier vazio escreve nenhum no lugar
     const observacoes = d.observacoes.trim() || "nenhuma";
     const textoExterno = d.textoExterno.trim() || "nenhum";
 
