@@ -18,5 +18,144 @@
       }
     ],
     "criadoEm": "2026-10-25T14:05:07.550Z"
+  },
+  {
+    "id": "2417ef53-941a-4cf9-ab9f-670dabaff397",
+    "disciplina": "Arte",
+    "anoEscolar": "9º ano do Ensino Fundamental",
+    "tema": "Atividade web2",
+    "questoes": [
+      {
+        "enunciado": "Qual é o passado de \"walk\"?",
+        "alternativas": [
+          "walked",
+          "walk",
+          "walkt",
+          "walking"
+        ],
+        "correta": 0
+      }
+    ],
+    "criadoEm": "2026-10-25T14:26:22.588Z"
+  },
+  {
+    "id": "d73d09a0-56ed-4a5f-81b2-d04720a4f980",
+    "disciplina": "Arte",
+    "anoEscolar": "9º ano do Ensino Fundamental",
+    "tema": "Steel Ball Run",
+    "textoExterno": "https://www.imdb.com/pt/title/tt38268282/\r\n\r\n\r\nSEEEEH LOUCO EH MUITO TOPE\r\n\r\nÉ OU NAO EH?",
+    "questoes": [
+      {
+        "enunciado": "Em que período histórico se passa a história de Steel Ball Run, de JoJo's Bizarre Adventure?",
+        "alternativas": [
+          "No século XV",
+          "No século XVII",
+          "No século XIX",
+          "No século XX",
+          "No século XXI"
+        ],
+        "correta": 2
+      },
+      {
+        "enunciado": "Qual é o principal acontecimento que movimenta a história de Steel Ball Run?",
+        "alternativas": [
+          "Uma expedição marítima pelo Oceano Atlântico",
+          "Uma corrida de longa distância pelos Estados Unidos",
+          "Uma guerra entre países europeus",
+          "Uma disputa por territórios na África",
+          "Uma competição de carros modernos"
+        ],
+        "correta": 1
+      },
+      {
+        "enunciado": "Quem é o autor responsável pela criação de JoJo's Bizarre Adventure, obra que inclui Steel Ball Run?",
+        "alternativas": [
+          "Akira Toriyama",
+          "Eiichiro Oda",
+          "Masashi Kishimoto",
+          "Hirohiko Araki",
+          "Hajime Isayama"
+        ],
+        "correta": 3
+      },
+      {
+        "enunciado": "Durante o século XIX, os Estados Unidos passaram por um processo de expansão territorial em direção ao oeste. Como esse processo ficou conhecido?",
+        "alternativas": [
+          "Revolução Industrial",
+          "Expansão para o oeste",
+          "Reforma Protestante",
+          "Revolução Francesa",
+          "Guerra Fria"
+        ],
+        "correta": 1
+      },
+      {
+        "enunciado": "Na época em que se passa Steel Ball Run, os cavalos ainda eram importantes para diversas atividades. Qual alternativa apresenta um uso comum desses animais naquele período?",
+        "alternativas": [
+          "Realizar viagens e transportar pessoas",
+          "Substituir completamente as ferrovias",
+          "Produzir energia elétrica para as cidades",
+          "Transportar informações pela internet",
+          "Movimentar automóveis"
+        ],
+        "correta": 0
+      },
+      {
+        "enunciado": "Durante a expansão territorial dos Estados Unidos, a ocupação de novas terras provocou consequências para os povos indígenas. Qual foi uma dessas consequências?",
+        "alternativas": [
+          "A garantia de que todos manteriam seus territórios",
+          "O fim imediato de todos os conflitos",
+          "A expulsão de muitos povos indígenas de suas terras",
+          "A proibição de qualquer migração para o oeste",
+          "O desaparecimento das disputas territoriais"
+        ],
+        "correta": 2
+      },
+      {
+        "enunciado": "Qual foi uma das principais contribuições das ferrovias para o desenvolvimento dos Estados Unidos no século XIX?",
+        "alternativas": [
+          "Impedir o comércio entre regiões distantes",
+          "Eliminar a necessidade de transportar mercadorias",
+          "Reduzir a população das cidades",
+          "Facilitar o transporte de pessoas e mercadorias",
+          "Substituir todas as formas de transporte existentes"
+        ],
+        "correta": 3
+      },
+      {
+        "enunciado": "Um estudante lê Steel Ball Run e encontra referências a lugares e costumes dos Estados Unidos do século XIX. Qual é a melhor maneira de verificar se essas informações correspondem à realidade histórica?",
+        "alternativas": [
+          "Considerar verdadeiros todos os acontecimentos apresentados no mangá",
+          "Consultar livros didáticos, documentos históricos e fontes confiáveis",
+          "Utilizar somente comentários de outros fãs",
+          "Ignorar todas as informações sobre o passado",
+          "Considerar que toda obra de ficção representa exatamente a realidade"
+        ],
+        "correta": 1
+      },
+      {
+        "enunciado": "Steel Ball Run apresenta uma versão fictícia dos Estados Unidos em 1890. Qual alternativa diferencia corretamente ficção e História?",
+        "alternativas": [
+          "Tudo o que aparece em uma obra ambientada no passado aconteceu realmente",
+          "Personagens fictícios são sempre registros de pessoas reais",
+          "Obras de ficção não podem apresentar elementos históricos",
+          "A História estuda apenas personagens de histórias em quadrinhos",
+          "Uma obra pode misturar elementos históricos com personagens e acontecimentos inventados"
+        ],
+        "correta": 4
+      },
+      {
+        "enunciado": "Ao relacionar Steel Ball Run com a História dos Estados Unidos, um estudante observa a expansão territorial, o desenvolvimento dos transportes e os conflitos pela terra. Qual conclusão é mais adequada?",
+        "alternativas": [
+          "A expansão territorial beneficiou igualmente todos os grupos sociais",
+          "O desenvolvimento dos transportes eliminou todas as desigualdades",
+          "A expansão territorial envolveu mudanças econômicas e sociais, além de conflitos e consequências para diferentes povos",
+          "As ferrovias não tiveram importância para a economia dos Estados Unidos",
+          "A ficção permite conhecer o passado sem consultar fontes históricas"
+        ],
+        "correta": 2
+      }
+    ],
+    "criadoEm": "2026-10-25T16:04:59.944Z"
   }
 ]

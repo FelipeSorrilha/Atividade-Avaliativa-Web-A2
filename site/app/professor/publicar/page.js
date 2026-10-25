@@ -9,10 +9,12 @@ export default function Publicar() {
     const [disciplina, setDisciplina] = useState("");
     const [anoEscolar, setAnoEscolar] = useState("");
     const [tema, setTema] = useState("");
-    const [textoRoteiro, setTextoRoteiro] = useState("");
+    const [arquivo, setArquivo] = useState(null);
+    const [chaveArquivo, setChaveArquivo] = useState(0);
     const [textoQuestoes, setTextoQuestoes] = useState("");
     const [mensagem, setMensagem] = useState("");
     const [enviando, setEnviando] = useState(false);
+    const [textoExterno, setTextoExterno] = useState("");
 
     // Roda o leitor a cada letra digitada
     const resultado = parseQuestoes(textoQuestoes);
@@ -21,7 +23,19 @@ export default function Publicar() {
         event.preventDefault();
         setMensagem("");
 
-        // Se tiver algum erro na formatação n dxa publicar
+        // Confere o arquivo antes de enviar, para avisar logo
+        if (!arquivo) {
+            setMensagem("Escolha o PDF do roteiro.");
+            return;
+        }
+        if (arquivo.type !== "application/pdf") {
+            setMensagem("O arquivo precisa ser um PDF.");
+            return;
+        }
+        if (arquivo.size > 10 * 1024 * 1024) {
+            setMensagem("O PDF passa de 10 MB.");
+            return;
+        }
         if (resultado.erros.length > 0 || resultado.questoes.length === 0) {
             setMensagem("Corrija as questões antes de publicar.");
             return;
@@ -29,20 +43,32 @@ export default function Publicar() {
 
         setEnviando(true);
         try {
+            // FormData monta um formulário que aceita arquivo junto com os textos
+            const dados = new FormData();
+            dados.append("disciplina", disciplina);
+            dados.append("anoEscolar", anoEscolar);
+            dados.append("tema", tema);
+            dados.append("textoQuestoes", textoQuestoes);
+            dados.append("textoExterno", textoExterno);
+            dados.append("arquivo", arquivo);
+
+            // ATENÇÃO: não coloque o cabeçalho Content-Type aqui.
+            // O navegador define sozinho, com o código que separa os campos do arquivo.
             const resposta = await fetch("/api/roteiros", {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ disciplina, anoEscolar, tema, textoRoteiro, textoQuestoes }),
+                body: dados,
             });
 
             if (resposta.ok) {
                 setMensagem("Roteiro publicado!");
                 setTema("");
-                setTextoRoteiro("");
                 setTextoQuestoes("");
+                setTextoExterno("");   // NOVO
+                setArquivo(null);
+                setChaveArquivo((c) => c + 1);
             } else {
-                const dados = await resposta.json();
-                setMensagem(dados.erro || "Não foi possível publicar.");
+                const resp = await resposta.json();
+                setMensagem(resp.erro || "Não foi possível publicar.");
             }
         } catch {
             setMensagem("Erro de conexão.");
@@ -83,12 +109,33 @@ export default function Publicar() {
                     <input type="text" id="tema" value={tema}
                         onChange={(e) => setTema(e.target.value)} required />
                 </div>
+                
+                <div className="campo">
+                    <label htmlFor="arquivo">PDF do roteiro</label>
+                    <input
+                        key={chaveArquivo}
+                        type="file"
+                        id="arquivo"
+                        accept="application/pdf"
+                        onChange={(e) => setArquivo(e.target.files[0] || null)}
+                        required
+                    />
+                    <small>Somente PDF, até 10 MB.</small>
+                </div>
 
                 <div className="campo">
-                    <label htmlFor="textoRoteiro">Texto do roteiro</label>
-                    <textarea id="textoRoteiro" rows={10} value={textoRoteiro}
-                        onChange={(e) => setTextoRoteiro(e.target.value)}
-                        placeholder="Cole aqui a explicação do conteúdo." required />
+                    <label htmlFor="textoExterno">Texto ou link externo (opcional)</label>
+                    <textarea
+                        id="textoExterno"
+                        rows={5}
+                        maxLength={10000}  // o mesmo limite que a API confere
+                        value={textoExterno}
+                        onChange={(e) => setTextoExterno(e.target.value)}
+                        placeholder="Cole aqui um texto ou um link que complementa o roteiro."
+                    />
+                    <small>
+                        Aparece para o aluno abaixo do PDF, identificado como material não produzido por IA.
+                    </small>
                 </div>
 
                 <div className="campo">

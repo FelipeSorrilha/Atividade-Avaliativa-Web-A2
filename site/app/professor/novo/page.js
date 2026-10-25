@@ -33,7 +33,6 @@ const WEB3FORMS_KEY = "fd6e04ec-425d-49d8-a4e3-9e23b5159298";
 function montarPrompt(d) {
     // Se um campo vier vazio escreve nenhum no lugar
     const observacoes = d.observacoes.trim() || "nenhuma";
-    const textoExterno = d.textoExterno.trim() || "nenhum";
 
     return `Crie um roteiro de estudos simples e resumido, com questões de múltipla escolha, adequado à disciplina, ao ano escolar e ao tema informados.
 
@@ -45,11 +44,10 @@ Dados do roteiro:
 * Quantidade de questões: ${d.quantidade}
 * Data prevista para utilização: ${d.dataUtilizacao}
 * Observações e orientações adicionais: ${observacoes}
-* Texto externo: ${textoExterno}
 
 Instruções para elaboração:
 
-1. Elabore um roteiro explicando brevemente o conteúdo, sem utilizar simbolos especiais.
+1. Elabore um roteiro explicando brevemente o conteúdo, sem utilizar simbolos especiais, e em formato de PDF.
 2. Adeque a linguagem, a complexidade e o nível de aprofundamento ao ano escolar informado.
 3. Aborde o tema solicitado de maneira coerente com os conteúdos da disciplina.
 4. Crie as questões separadas do texto de explicação em uma sequência lógica, começando, preferencialmente, pelas mais simples e avançando para as mais complexas.
@@ -58,9 +56,9 @@ Instruções para elaboração:
 7. Evite questões repetitivas, informações incorretas e conteúdos inadequados ao nível de escolaridade.
 8. Considere as observações fornecidas pelo solicitante, respeitando as orientações específicas sobre a turma, os conteúdos e a abordagem desejada.
 9. Quando pertinente, contextualize as questões com situações do cotidiano dos estudantes.
-10. Se houver texto ou link externo, inclua-o no roteiro destacado como: TEXTO NAO PRODUZIDO POR IA, RETIRADO DA INTERNET E INFORMADO PELO PROFESSOR PARA COMPLEMENTAR O ESTUDO.
-11. Escreva primeiro o texto de explicação, sem usar o símbolo # nele. Depois escreva, sozinha em uma linha, a marcação ---QUESTOES--- e, em seguida, todas as questões. // NOVO
-12. Escreva todas as questões dentro de um único bloco de código, no formato abaixo. // NOVO
+10. Escreva primeiro o texto de explicação, sem usar o símbolo # nele. Depois escreva, sozinha em uma linha, a marcação ---QUESTOES--- e, em seguida, todas as questões. // NOVO
+11. Escreva todas as questões dentro de um único bloco de código, no formato abaixo.
+12. As questões e sua formatação devem vir fora do PDF.
 
 Formato de cada questão:
 
@@ -108,7 +106,8 @@ export default function SolicitarRoteiro() {
     const [observacoes, setObservacoes] = useState("");
     const [mensagem, setMensagem] = useState("");
     const dataMinima = calcularDataMinima();
-    const [textoExterno, setTextoExterno] = useState("");
+    // E-mail do professor, para a equipe devolver o roteiro depois
+    const [emailProfessor, setEmailProfessor] = useState("");
 
 // "async" pq usa await para esperar a resposta
 async function enviarSolicitacao(event) {
@@ -134,9 +133,10 @@ async function enviarSolicitacao(event) {
                 access_key: WEB3FORMS_KEY,
                 // "subject" vira o assunto do e-mail
                 subject: `Nova solicitação: ${disciplina} - ${tema}`,
+                email: emailProfessor,
                 message: montarPrompt({
                     disciplina, anoEscolar, tema, quantidade,
-                    dataUtilizacao, observacoes, textoExterno,
+                    dataUtilizacao, observacoes,
                 }),
             }),
         });
@@ -148,14 +148,15 @@ async function enviarSolicitacao(event) {
             setMensagem("Solicitação enviada!");
             setTema(""); // limpa os campos de texto
             setObservacoes("");
-            setTextoExterno("");
         } else {
             setMensagem("Não foi possível enviar. Tente novamente.");
         }
-    } catch {
-        // cai aqui se não houve conexão
-        setMensagem("Erro de conexão.");
-    }
+    } catch (erro) {
+    // Mostra o erro de verdade no console do navegador
+    console.error("Erro ao enviar:", erro);
+    // Provisório, só para descobrir o problema. Depois volte para "Erro de conexão."
+    setMensagem("Erro: " + erro.message);
+}
     setEnviando(false);
 }
 
@@ -172,6 +173,24 @@ async function enviarSolicitacao(event) {
                 <h2>Dados do roteiro</h2>
 
                 <form onSubmit={enviarSolicitacao}>
+
+                    <div className="campo">
+                        <label htmlFor="emailProfessor">Seu e-mail</label>
+
+                        {/* type="email" já faz o navegador conferir o formato (precisa ter @ e domínio) */}
+                        <input
+                            type="email"
+                            id="emailProfessor"
+                            name="emailProfessor"
+                            placeholder="nome@escola.educa.gov.br"
+                            value={emailProfessor}
+                            onChange={(e) => setEmailProfessor(e.target.value)}
+                            required
+                        />
+
+                        <small>Usaremos este e-mail para enviar o roteiro pronto.</small>
+                    </div>
+
                     <div className="campo">
                         <label htmlFor="disciplina">
                             Disciplina
@@ -325,23 +344,6 @@ async function enviarSolicitacao(event) {
                             }
                             rows={4}
                         />
-                    </div>
-
-                    <div className="campo">
-                        <label htmlFor="textoExterno">
-                            Texto ou link externo (opcional)
-                        </label>
-
-                        <textarea
-                            id="textoExterno"
-                            name="textoExterno"
-                            placeholder="Cole aqui um texto, ou um link, que possa complementar o roteiro."
-                            value={textoExterno}
-                            onChange={(e) => setTextoExterno(e.target.value)}
-                            rows={5}
-                            maxLength={5000} 
-                        />
-
                     </div>
 
                     {mensagem && (
