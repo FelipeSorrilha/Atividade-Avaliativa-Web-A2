@@ -1,0 +1,16 @@
+1:"$Sreact.fragment"
+2:I[9766,[],""]
+3:I[8924,[],""]
+4:I[2619,["619","static/chunks/619-ba102abea3e3d0e4.js","974","static/chunks/app/page-f8bc5b1d59a822ec.js"],""]
+5:I[4431,[],"OutletBoundary"]
+7:I[5278,[],"AsyncMetadataOutlet"]
+9:I[4431,[],"ViewportBoundary"]
+b:I[4431,[],"MetadataBoundary"]
+c:"$Sreact.suspense"
+e:I[7150,[],""]
+:HL["/_next/static/css/2a2324d2bc91f2bc.css","style"]
+0:{"P":null,"b":"0zoYcfZ-7Hc8KAQi_DEEj","p":"","c":["",""],"i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/2a2324d2bc91f2bc.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"pt-BR","children":["$","body",null,{"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","main",null,{"className":"container","children":[["$","h1",null,{"className":"titulo","children":"Roteiro não encontrado"}],["$","p",null,{"children":"Esse endereço não existe ou o roteiro foi removido."}],["$","$L4",null,{"href":"/aluno","className":"botao","children":"Ver todos os roteiros"}]]}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":["__PAGE__",["$","$1","c",{"children":[["$","main",null,{"className":"container","children":[["$","h1",null,{"className":"titulo","children":"Seu próximo aprendizado começa aqui!"}],["$","p",null,{"children":"Roteiros de estudos claros e confiáveis, criados com inteligência artificial e revisados por quem entende: seus professores."}],["$","div",null,{"className":"menu","children":[["$","$L4",null,{"href":"/professor","className":"botao","children":"Área do Professor"}],["$","$L4",null,{"href":"/aluno","className":"botao botao-secundario","children":"Área do Aluno"}]]}]]}],null,["$","$L5",null,{"children":["$L6",["$","$L7",null,{"promise":"$@8"}]]}]]}],{},null,false]},null,false],["$","$1","h",{"children":[null,[["$","$L9",null,{"children":"$La"}],null],["$","$Lb",null,{"children":["$","div",null,{"hidden":true,"children":["$","$c",null,{"fallback":null,"children":"$Ld"}]}]}]]}],false]],"m":"$undefined","G":["$e",[]],"s":false,"S":true}
+a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+6:null
+8:{"metadata":[["$","title","0",{"children":"Roteiros de Estudo"}]],"error":null,"digest":"$undefined"}
+d:"$8:metadata"
