@@ -20,7 +20,6 @@ export default async function PaginaRoteiro({ params }) {
 
     if (!roteiro) notFound();
 
-    // A ligação entre as duas entidades: o professorId do roteiro aponta para um professor
     const professor = professores.find((p) => p.id === roteiro.professorId);
 
     return (
@@ -38,7 +37,6 @@ export default async function PaginaRoteiro({ params }) {
                 <p>{roteiro.explicacao}</p>
             </section>
 
-            {/* Componente de cliente: busca na Wikipédia depois que a página abre */}
             <TextoApoio termo={roteiro.termoWikipedia} />
 
             <h2>Questões de fixação</h2>
