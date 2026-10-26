@@ -1,151 +1,47 @@
-"use client";
-
-import { useState, useEffect } from "react";
-import { useParams } from "next/navigation"; // lê o [id] do endereço
 import Link from "next/link";
+import { notFound } from "next/navigation";
+// Quatro "../" porque este arquivo está 4 pastas dentro de "site"
+import roteiros from "../../../../dados/roteiros.json";
+import professores from "../../../../dados/professores.json";
+import AvisoRevisor from "../../../../components/AvisoRevisor";
+import TextoApoio from "../../../../components/TextoApoio";
+import Questao from "../../../../components/Questao";
 
-function Questao({ numero, questao }) {
-    const [escolhida, setEscolhida] = useState(null); // alternativa marcada
-    const [resultado, setResultado] = useState(null); // null e "certa" e "errada"
-
-    function escolher(indice) {
-        setEscolhida(indice);
-        setResultado(null); // ao mudar a marcação, apaga o resultado anterior
-    }
-
-    function checar() {
-        // questao.correta é o índice da alternativa certa
-        setResultado(escolhida === questao.correta ? "certa" : "errada");
-    }
-
-    return (
-        <section className="questao">
-            <h3>Questão {numero}</h3>
-            <p>{questao.enunciado}</p>
-
-            {questao.alternativas.map((texto, i) => {
-                // Só pinta a alternativa marcada, e só depois de checar
-                let classe = "alternativa";
-                if (resultado && escolhida === i) {
-                    classe += resultado === "certa" ? " alternativa-certa" : " alternativa-errada";
-                }
-                return (
-                    <label key={i} className={classe}>
-                        <input
-                            type="radio"
-                            name={`questao-${numero}`} 
-                            checked={escolhida === i}
-                            onChange={() => escolher(i)}
-                        />
-                        <strong>{String.fromCharCode(97 + i)})</strong> {texto}
-                    </label>
-                );
-            })}
-
-            <button
-                type="button"
-                className="botao"
-                onClick={checar}
-                disabled={escolhida === null} // só habilita depois de marcar algo
-            >
-                Checar resposta
-            </button>
-
-            {resultado === "certa" && (
-                <p className="resultado resultado-certo">Resposta correta!</p>
-            )}
-            {resultado === "errada" && (
-                <p className="resultado resultado-errado">Resposta incorreta. Tente de novo.</p>
-            )}
-        </section>
-    );
+export function generateStaticParams() {
+    return roteiros.map((r) => ({ id: r.id }));
 }
 
-// Mostra um texto e transforma endereços http/https em links clicáveis.
-function TextoComLinks({ texto }) {
-    const partes = texto.split(/(https?:\/\/[^\s]*[^\s.,;:!?)])/g);
+export const dynamicParams = false;
+
+export default async function PaginaRoteiro({ params }) {
+    const { id } = await params;
+
+    const roteiro = roteiros.find((r) => r.id === id);
+
+    if (!roteiro) notFound();
+
+    // A ligação entre as duas entidades: o professorId do roteiro aponta para um professor
+    const professor = professores.find((p) => p.id === roteiro.professorId);
 
     return (
-        <p className="texto-externo-conteudo">
-            {partes.map((parte, i) =>
-                i % 2 === 1 ? (
-                    // protege a sua página quando o link abre em outra aba
-                    <a key={i} href={parte} target="_blank" rel="noopener noreferrer">
-                        {parte}
-                    </a>
-                ) : (
-                    parte
-                )
-            )}
-        </p>
-    );
-}
-
-export default function RoteiroAluno() {
-    const { id } = useParams();
-    const [roteiro, setRoteiro] = useState(null);
-    // "carregando" ou "ok" ou "erro"
-    const [estado, setEstado] = useState("carregando");
-
-    // Busca o roteiro quando a tela abre
-    useEffect(() => {
-        fetch(`/api/roteiros/${id}`)
-            .then((r) => {
-                if (!r.ok) throw new Error("não encontrado");
-                return r.json();
-            })
-            .then((dados) => {
-                setRoteiro(dados);
-                setEstado("ok");
-            })
-            .catch(() => setEstado("erro"));
-    }, [id]);
-
-    if (estado === "carregando") return <main className="container"><p>Carregando...</p></main>;
-
-    if (estado === "erro") {
-        return (
-            <main className="container">
-                <p>Roteiro não encontrado.</p>
-                <Link href="/aluno" className="botao botao-secundario">Voltar</Link>
-            </main>
-        );
-    }
-
-    const urlPdf = `/api/roteiros/${id}/pdf`;
-
-    return (
-        <main className="container">
-            <h1 className="titulo">{roteiro.tema}</h1>
+        <main className="container container-largo">
+            <h1 className="titulo">{roteiro.titulo}</h1>
             <p>
-                {roteiro.disciplina} · {roteiro.anoEscolar} · Publicado em{" "}
-                {new Date(roteiro.criadoEm).toLocaleDateString("pt-BR")}
+                {roteiro.disciplina} · {roteiro.ano} · Tempo estimado:{" "}
+                {roteiro.tempoEstimadoMin} min
             </p>
 
-            <iframe
-                src={`${urlPdf}#navpanes=0&view=FitH`}
-                className="visualizador-pdf"
-                title="Roteiro em PDF"
-            />
+            <AvisoRevisor professor={professor} />
 
-            {/* Dois botões lado a lado: abrir em tela cheia e baixar */}
-            <div className="acoes-pdf">
-                <a href={urlPdf} target="_blank" rel="noopener noreferrer" className="botao botao-secundario">
-                    Abrir em tela cheia
-                </a>
-                <a href={`${urlPdf}?download=1`} className="botao">Baixar PDF</a>
-            </div>
+            <section>
+                <h2>Explicação</h2>
+                <p>{roteiro.explicacao}</p>
+            </section>
 
-            {roteiro.textoExterno && (
-                <section className="texto-externo">
-                    <p className="aviso-externo">
-                        TEXTO NÃO PRODUZIDO POR IA, RETIRADO DA INTERNET E INFORMADO PELO PROFESSOR
-                    </p>
-                    <TextoComLinks texto={roteiro.textoExterno} />
-                </section>
-            )}
+            {/* Componente de cliente: busca na Wikipédia depois que a página abre */}
+            <TextoApoio termo={roteiro.termoWikipedia} />
 
-            <h2>Questões</h2>
+            <h2>Questões de fixação</h2>
             {roteiro.questoes.map((q, i) => (
                 <Questao key={i} numero={i + 1} questao={q} />
             ))}
@@ -155,8 +51,7 @@ export default function RoteiroAluno() {
                     Voltar para os roteiros
                 </Link>
             </div>
-
-            <main className="container container-largo"></main>
         </main>
     );
 }
+

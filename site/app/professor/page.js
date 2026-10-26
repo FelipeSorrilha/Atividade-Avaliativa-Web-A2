@@ -1,51 +1,26 @@
+"use client";
+
 import Link from "next/link";
 
-export default function Novo() {
+export default function Professor() {
     return (
-        <main>
-            <h1>Boas vindas, professor!</h1>
-            <p>Entre com seus dados institucionais:</p>
+    // No JSX é className, e não class (class é palavra reservada do JavaScript)
+    <main className="container">
+        <h1 className="titulo">Área do Professor</h1>
+        <p>Escolha uma opção:</p>
 
-            <div className="container-formulario">
-                <h2>Login de Usuário</h2>
+        {/* Um grupo para os botões, para controlar o espaçamento entre eles */}
+        <nav className="menu">
+        <Link href="/professor/novo" className="botao">
+            Solicitar um novo Roteiro
+        </Link>
 
-                <form>
-                    <div className="campo">
-                        <label htmlFor="email">E-mail</label>
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="Digite seu e-mail:"
-                            required
-                        />
-                    </div>
 
-                    <div className="campo">
-                        <label htmlFor="nome">Nome</label>
-                        <input
-                            type="text"
-                            id="nome"
-                            name="nome"
-                            placeholder="Insira seu nome:"
-                            required
-                        />
-                    </div>
-
-                    <Link href="/professor/login" className="botao">
-                        Entrar
-                    </Link>
-                </form>
-            </div>
-
-            <div className="botao-voltar">
-                <Link
-                    href="/"
-                    className="botao botao-secundario"
-                >
-                    Voltar para o início
-                </Link>
-            </div>
-        </main>
+        {/* Segunda classe: "botao-secundario" muda só a aparência deste */}
+        <Link href="/" className="botao botao-secundario">
+            Voltar para o início
+        </Link>
+    </nav>
+    </main>
     );
 }

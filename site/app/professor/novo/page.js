@@ -56,9 +56,9 @@ Instruções para elaboração:
 7. Evite questões repetitivas, informações incorretas e conteúdos inadequados ao nível de escolaridade.
 8. Considere as observações fornecidas pelo solicitante, respeitando as orientações específicas sobre a turma, os conteúdos e a abordagem desejada.
 9. Quando pertinente, contextualize as questões com situações do cotidiano dos estudantes.
-10. Escreva primeiro o texto de explicação, sem usar o símbolo # nele. Depois escreva, sozinha em uma linha, a marcação ---QUESTOES--- e, em seguida, todas as questões. // NOVO
+10. Escreva primeiro o texto de explicação, sem usar o símbolo # nele. Depois escreva, sozinha em uma linha, a marcação ---QUESTOES--- e, em seguida, todas as questões.
 11. Escreva todas as questões dentro de um único bloco de código, no formato abaixo.
-12. As questões e sua formatação devem vir fora do PDF.
+git rm -r app/api
 
 Formato de cada questão:
 

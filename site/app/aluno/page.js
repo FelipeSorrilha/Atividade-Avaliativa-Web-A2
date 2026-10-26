@@ -1,37 +1,26 @@
-"use client"; // usa useState, useEffect e eventos
+"use client"; // usa useState (filtros)
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { disciplinas, anosEscolares } from "../../lib/opcoes";
+import CartaoRoteiro from "../../components/CartaoRoteiro";
+
+// Importar um arquivo .json entrega o conteúdo já como lista de objetos JavaScript.
+// O arquivo vira parte do site na hora do build: sem fetch e sem servidor.
+import roteiros from "../../dados/roteiros.json";
 
 export default function Aluno() {
     const [anoFiltro, setAnoFiltro] = useState("");
     const [disciplinaFiltro, setDisciplinaFiltro] = useState("");
-    const [roteiros, setRoteiros] = useState([]);
-    const [carregando, setCarregando] = useState(true);
-    const [erro, setErro] = useState(false);
 
-    // busca os roteiros
-    useEffect(() => {
-        fetch("/api/roteiros")
-            .then((r) => r.json())
-            .then((dados) => {
-                setRoteiros(dados);
-                setCarregando(false);
-            })
-            .catch(() => {
-                setErro(true);
-                setCarregando(false);
-            });
-    }, []);
-
-    // Os dois filtros precisam estar escolhidos
+    // Os dois filtros precisam estar escolhidos para a lista aparecer
     const filtrando = anoFiltro !== "" && disciplinaFiltro !== "";
 
+    // Atenção aos nomes dos campos do JSON: "ano" e "disciplina"
     const roteirosFiltrados = filtrando
         ? roteiros.filter(
-                (r) => r.anoEscolar === anoFiltro && r.disciplina === disciplinaFiltro
-            )
+              (r) => r.ano === anoFiltro && r.disciplina === disciplinaFiltro
+          )
         : [];
 
     return (
@@ -69,26 +58,16 @@ export default function Aluno() {
                 </div>
             </div>
 
-            {/* Mensagens conforme a situação */}
-            {carregando && <p>Carregando roteiros...</p>}
-            {erro && <p>Não foi possível carregar os roteiros.</p>}
-            {!carregando && !erro && !filtrando && (
-                <p>Escolha o ano e a disciplina para ver os roteiros.</p>
-            )}
-            {!carregando && !erro && filtrando && roteirosFiltrados.length === 0 && (
-                <p>Nenhum roteiro publicado para essa combinação ainda.</p>
+            {!filtrando && <p>Escolha o ano e a disciplina para ver os roteiros.</p>}
+            {filtrando && roteirosFiltrados.length === 0 && (
+                <p>Nenhum roteiro disponível para essa combinação.</p>
             )}
 
             <ul className="lista-roteiros">
                 {roteirosFiltrados.map((r) => (
                     <li key={r.id}>
-                        <Link href={`/aluno/roteiro/${r.id}`} className="cartao-roteiro">
-                            <h3>{r.tema}</h3>
-                            <p>
-                                Publicado em{" "}
-                                {new Date(r.criadoEm).toLocaleDateString("pt-BR")}
-                            </p>
-                        </Link>
+                        {/* Passamos o roteiro inteiro para o componente via prop "roteiro" */}
+                        <CartaoRoteiro roteiro={r} />
                     </li>
                 ))}
             </ul>

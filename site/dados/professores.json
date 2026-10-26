@@ -1,0 +1,21 @@
+
+[
+  {
+    "id": 1,
+    "nome": "Marina Oliveira",
+    "disciplina": "Matemática",
+    "escola": "Escola Municipal Santos Dumont"
+  },
+  {
+    "id": 2,
+    "nome": "Carlos Pereira",
+    "disciplina": "Ciências",
+    "escola": "Escola Municipal Machado de Assis"
+  },
+  {
+    "id": 3,
+    "nome": "Paula Ribeiro",
+    "disciplina": "Inglês",
+    "escola": "Escola Municipal Santos Dumont"
+  }
+]

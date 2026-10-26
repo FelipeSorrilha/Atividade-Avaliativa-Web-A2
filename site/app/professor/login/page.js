@@ -10,9 +10,6 @@ export default function Professor() {
             Solicitar um novo Roteiro
         </Link>
 
-        <Link href="/professor/publicar" className="botao">
-            Publicar Roteiro
-        </Link>
 
         {/* Segunda classe: "botao-secundario" muda só a aparência deste */}
         <Link href="/" className="botao botao-secundario">

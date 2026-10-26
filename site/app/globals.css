@@ -231,3 +231,41 @@ a.cartao-roteiro:hover { border-color: #2f5fd0; }
     overflow-wrap: anywhere;      /* quebra links compridos em vez de estourar a caixa */
     margin: 0;
 }
+
+/* Faixa que avisa que o material foi gerado por IA e mostra o professor revisor */
+.aviso-ia {
+    background: #fff7e0;
+    border: 1px solid #e0b84a;
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 16px 0;
+}
+.aviso-ia p { margin: 4px 0 0; }
+
+/* Caixa do texto de apoio da Wikipédia */
+.apoio-externo {
+    background: white;
+    border: 1px solid #d9dbe8;
+    border-left: 5px solid #b26a00;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 20px 0;
+}
+.aviso-externo {
+    font-size: 13px;
+    font-weight: bold;
+    color: #b26a00;
+    margin: 0 0 8px;
+}
+
+.selo {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: #e5e7eb;
+    color: #374151;
+}
+.selo-tempo { background: #dbeafe; color: #1e40af; }
+.selo-ia { background: #fef3c7; color: #92400e; }

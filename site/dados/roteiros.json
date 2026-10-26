@@ -1,0 +1,230 @@
+[
+  {
+    "id": "fracoes-6ano",
+    "titulo": "Frações no dia a dia",
+    "tema": "Frações",
+    "disciplina": "Matemática",
+    "ano": "6º ano do Ensino Fundamental",
+    "explicacao": "Uma fração representa uma ou mais partes de um todo dividido em partes iguais. O numerador indica quantas partes são consideradas, enquanto o denominador indica em quantas partes iguais o todo foi dividido. As frações aparecem em situações cotidianas, como dividir alimentos, medir ingredientes e repartir objetos.",
+    "tempoEstimadoMin": 25,
+    "professorId": 1,
+    "termoWikipedia": "Fração",
+    "questoes": [
+      {
+        "enunciado": "Uma pizza foi dividida em 8 pedaços iguais e Pedro comeu 3. Qual fração representa a parte que ele comeu?",
+        "alternativas": ["3/8", "8/3", "5/8", "3/5"],
+        "correta": 0
+      },
+      {
+        "enunciado": "Na fração 4/7, qual número representa o denominador?",
+        "alternativas": ["4", "7", "11", "3"],
+        "correta": 1
+      },
+      {
+        "enunciado": "Uma barra de chocolate foi dividida em 6 partes iguais. Ana comeu 2 partes. Qual fração representa a parte que sobrou?",
+        "alternativas": ["2/6", "2/4", "4/6", "6/2"],
+        "correta": 2
+      },
+      {
+        "enunciado": "Qual das frações abaixo é equivalente a 1/2?",
+        "alternativas": ["2/3", "3/4", "1/4", "2/4"],
+        "correta": 3
+      },
+      {
+        "enunciado": "João percorreu 3/5 de um caminho e Maria percorreu 1/5 do mesmo caminho. Considerando que ambos começaram no mesmo ponto, qual fração a mais João percorreu em relação a Maria?",
+        "alternativas": ["2/5", "4/5", "1/5", "3/10"],
+        "correta": 0
+      }
+    ]
+  },
+  {
+    "id": "interpretacao-texto-7ano",
+    "titulo": "Interpretando textos",
+    "tema": "Interpretação de texto",
+    "disciplina": "Língua Portuguesa",
+    "ano": "7º ano do Ensino Fundamental",
+    "explicacao": "Interpretar um texto significa compreender suas informações, identificar o assunto principal e perceber as ideias apresentadas pelo autor. As informações explícitas aparecem diretamente no texto, enquanto as implícitas precisam ser compreendidas por meio de pistas e do contexto. A interpretação também envolve reconhecer opiniões, intenções e relações entre as ideias.",
+    "tempoEstimadoMin": 25,
+    "professorId": 1,
+    "termoWikipedia": "Interpretação de texto",
+    "questoes": [
+      {
+        "enunciado": "Leia: Marina levou um guarda-chuva porque o céu estava muito escuro. Qual é a conclusão mais provável?",
+        "alternativas": ["Marina pretendia ir à praia.", "Marina acreditava que poderia chover.", "Marina estava com fome.", "Marina queria comprar um casaco."],
+        "correta": 1
+      },
+      {
+        "enunciado": "Qual é a principal finalidade de identificar o assunto principal de um texto?",
+        "alternativas": ["Contar quantas palavras existem.", "Encontrar somente palavras difíceis.", "Compreender a ideia central apresentada.", "Memorizar todas as frases sem compreender."],
+        "correta": 2
+      },
+      {
+        "enunciado": "Leia: Pedro estudou durante toda a semana e revisou o conteúdo antes da prova. O que essa informação permite concluir?",
+        "alternativas": ["Pedro se preparou para a prova.", "Pedro não compareceu à escola.", "Pedro não conhecia o conteúdo.", "Pedro decidiu abandonar os estudos."],
+        "correta": 0
+      },
+      {
+        "enunciado": "Em um texto, uma informação explícita é aquela que:",
+        "alternativas": ["Precisa ser imaginada pelo leitor.", "Contradiz necessariamente o autor.", "Não aparece em nenhuma parte do texto.", "Está apresentada diretamente no texto."],
+        "correta": 3
+      },
+      {
+        "enunciado": "Leia: A praça estava cheia de embalagens e garrafas espalhadas. Um grupo de moradores decidiu organizar uma limpeza. Qual atitude dos moradores é demonstrada?",
+        "alternativas": ["Indiferença em relação ao espaço público.", "Preocupação com a conservação do ambiente.", "Intenção de aumentar a quantidade de lixo.", "Desinteresse pela comunidade."],
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": "celulas-7ano",
+    "titulo": "Conhecendo as células",
+    "tema": "Células e organização dos seres vivos",
+    "disciplina": "Ciências",
+    "ano": "7º ano do Ensino Fundamental",
+    "explicacao": "A célula é a unidade básica estrutural e funcional dos seres vivos. Alguns organismos são formados por uma única célula, enquanto outros possuem muitas células. A membrana plasmática controla a entrada e a saída de substâncias, o citoplasma abriga estruturas celulares e o material genético contém informações importantes para o funcionamento da célula. Em organismos multicelulares, células semelhantes podem formar tecidos.",
+    "tempoEstimadoMin": 25,
+    "professorId": 1,
+    "termoWikipedia": "Célula",
+    "questoes": [
+      {
+        "enunciado": "Qual é a unidade básica que forma os seres vivos?",
+        "alternativas": ["O órgão", "O tecido", "A célula", "O sistema"],
+        "correta": 2
+      },
+      {
+        "enunciado": "Qual estrutura celular controla a entrada e a saída de substâncias?",
+        "alternativas": ["Membrana plasmática", "Núcleo ósseo", "Parede do estômago", "Pulmão"],
+        "correta": 0
+      },
+      {
+        "enunciado": "Como são chamados os organismos formados por apenas uma célula?",
+        "alternativas": ["Pluricelulares", "Multissistêmicos", "Inorgânicos", "Unicelulares"],
+        "correta": 3
+      },
+      {
+        "enunciado": "Qual é uma função importante do material genético?",
+        "alternativas": ["Produzir luz em todas as células.", "Armazenar informações necessárias ao funcionamento celular.", "Substituir a membrana plasmática.", "Transformar todas as células em órgãos."],
+        "correta": 1
+      },
+      {
+        "enunciado": "No corpo humano, células semelhantes podem se organizar para desempenhar funções em conjunto. Como é chamado esse conjunto de células?",
+        "alternativas": ["Molécula", "Organismo unicelular", "Tecido", "Átomo"],
+        "correta": 2
+      }
+    ]
+  },
+  {
+    "id": "brasil-colonia-8ano",
+    "titulo": "O Brasil no período colonial",
+    "tema": "Brasil Colônia",
+    "disciplina": "História",
+    "ano": "8º ano do Ensino Fundamental",
+    "explicacao": "O período colonial brasileiro começou com a chegada dos portugueses em 1500 e terminou com a independência, em 1822. Durante esse período, Portugal explorou recursos naturais e organizou atividades econômicas, como a produção de açúcar e a mineração. A colonização foi marcada pela escravização de povos indígenas e africanos, pela resistência desses povos e por profundas desigualdades sociais.",
+    "tempoEstimadoMin": 25,
+    "professorId": 1,
+    "termoWikipedia": "Brasil Colônia",
+    "questoes": [
+      {
+        "enunciado": "Qual país colonizou o território que hoje corresponde ao Brasil a partir de 1500?",
+        "alternativas": ["Espanha", "Portugal", "França", "Inglaterra"],
+        "correta": 1
+      },
+      {
+        "enunciado": "Qual atividade econômica foi importante para a economia colonial brasileira, especialmente no Nordeste?",
+        "alternativas": ["Produção de açúcar", "Fabricação de computadores", "Indústria automobilística", "Produção de semicondutores"],
+        "correta": 0
+      },
+      {
+        "enunciado": "Qual acontecimento marcou o fim do período colonial brasileiro?",
+        "alternativas": ["A chegada da família real em 1808.", "A Proclamação da República em 1889.", "A independência do Brasil em 1822.", "A Constituição de 1988."],
+        "correta": 2
+      },
+      {
+        "enunciado": "Qual alternativa apresenta uma característica da sociedade colonial brasileira?",
+        "alternativas": ["Ausência de desigualdades sociais.", "Industrialização completa desde o início.", "Fim imediato da escravidão.", "Presença da escravidão e de grandes desigualdades sociais."],
+        "correta": 3
+      },
+      {
+        "enunciado": "A resistência à escravidão no Brasil colonial ocorreu de diferentes formas. Qual alternativa apresenta um exemplo dessa resistência?",
+        "alternativas": ["Apoio obrigatório à escravidão por todos os grupos.", "Formação de quilombos por pessoas que resistiam à escravização.", "Proibição de qualquer manifestação cultural.", "Expansão do tráfico de pessoas como movimento de libertação."],
+        "correta": 1
+      }
+    ]
+  },
+  {
+    "id": "equacoes-9ano",
+    "titulo": "Equações do segundo grau",
+    "tema": "Equações do segundo grau",
+    "disciplina": "Matemática",
+    "ano": "9º ano do Ensino Fundamental",
+    "explicacao": "Uma equação do segundo grau pode ser escrita na forma ax² + bx + c = 0, em que a, b e c são números reais e a é diferente de zero. Resolver a equação significa encontrar os valores de x que tornam a igualdade verdadeira. As soluções podem ser encontradas por fatoração, completando quadrados ou utilizando a fórmula de Bhaskara.",
+    "tempoEstimadoMin": 30,
+    "professorId": 1,
+    "termoWikipedia": "Equação quadrática",
+    "questoes": [
+      {
+        "enunciado": "Qual das alternativas representa uma equação do segundo grau?",
+        "alternativas": ["2x + 3 = 7", "x³ - 2 = 0", "x² + 5x + 6 = 0", "4x = 12"],
+        "correta": 2
+      },
+      {
+        "enunciado": "Quais são as raízes da equação x² - 5x + 6 = 0?",
+        "alternativas": ["x = 1 e x = 6", "x = 2 e x = 3", "x = -2 e x = -3", "x = 0 e x = 5"],
+        "correta": 1
+      },
+      {
+        "enunciado": "Qual é o valor do discriminante da equação x² - 4x + 3 = 0?",
+        "alternativas": ["4", "8", "12", "16"],
+        "correta": 0
+      },
+      {
+        "enunciado": "Qual é a solução da equação x² - 9 = 0?",
+        "alternativas": ["Somente x = 3", "Somente x = -3", "x = 3 e x = -3", "x = 0 e x = 9"],
+        "correta": 2
+      },
+      {
+        "enunciado": "Um retângulo tem largura x e comprimento x + 2. Sua área é de 48 unidades quadradas. Qual equação representa essa situação?",
+        "alternativas": ["2x + 2 = 48", "x² + 2 = 48", "x + 2 = 48", "x² + 2x - 48 = 0"],
+        "correta": 3
+      }
+    ]
+  },
+  {
+    "id": "energia-9ano",
+    "titulo": "Energia e suas transformações",
+    "tema": "Formas e transformações de energia",
+    "disciplina": "Ciências",
+    "ano": "9º ano do Ensino Fundamental",
+    "explicacao": "A energia está presente em fenômenos naturais e atividades cotidianas. Ela pode aparecer em diferentes formas, como térmica, elétrica, química, luminosa e mecânica. A energia pode ser transformada de uma forma em outra. Em uma lâmpada, por exemplo, a energia elétrica é transformada principalmente em energia luminosa e também em energia térmica. Fontes renováveis, como a luz solar e o vento, podem ser utilizadas para produzir eletricidade.",
+    "tempoEstimadoMin": 25,
+    "professorId": 1,
+    "termoWikipedia": "Energia",
+    "questoes": [
+      {
+        "enunciado": "Quando uma lâmpada está acesa, ocorre principalmente qual transformação de energia?",
+        "alternativas": ["Energia luminosa em energia nuclear.", "Energia química em energia sonora.", "Energia térmica em energia química.", "Energia elétrica em energia luminosa e térmica."],
+        "correta": 3
+      },
+      {
+        "enunciado": "Qual fonte de energia é considerada renovável?",
+        "alternativas": ["Carvão mineral", "Energia solar", "Petróleo", "Gás natural"],
+        "correta": 1
+      },
+      {
+        "enunciado": "Em uma pilha que alimenta um controle remoto, qual transformação de energia ocorre?",
+        "alternativas": ["Energia química em energia elétrica.", "Energia sonora em energia nuclear.", "Energia luminosa em energia química, exclusivamente.", "Energia mecânica em energia solar."],
+        "correta": 0
+      },
+      {
+        "enunciado": "Qual alternativa apresenta uma fonte de energia não renovável?",
+        "alternativas": ["Vento", "Luz solar", "Petróleo", "Movimento da água em rios"],
+        "correta": 2
+      },
+      {
+        "enunciado": "Por que é importante evitar o desperdício de energia elétrica?",
+        "alternativas": ["Porque toda energia elétrica é produzida sem impactos ambientais.", "Porque economizar energia impede o funcionamento dos aparelhos.", "Porque a eletricidade não pode ser medida.", "Porque a economia pode reduzir custos e diminuir a necessidade de geração de energia."],
+        "correta": 3
+      }
+    ]
+  }
+]
